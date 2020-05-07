@@ -8,16 +8,13 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - run:
-          name: install dependencies
-          command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt 
+      - python/load-cache
+      - python/install-deps
+      - python/save-cache
       - run:
           name: run tests
           command: | 
-            pytest -v --cov=calculator
+            pytest -v --cov .  
 
 workflows:
   main:
