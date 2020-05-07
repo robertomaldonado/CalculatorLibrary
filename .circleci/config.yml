@@ -13,7 +13,7 @@ jobs:
       - python/save-cache
       - run:
           command: |
-          pipenv run python calculator.py test
+          run python calculator.py test
 
 workflows:
   main:
